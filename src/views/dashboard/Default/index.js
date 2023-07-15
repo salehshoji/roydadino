@@ -15,8 +15,6 @@ const Dashboard = () => {
     setLoading(false);
   }, []);
 
-  document.querySelector()
-
   return (
     <Grid id = "test" container spacing={gridSpacing}>
       <Grid item xs={12}>
