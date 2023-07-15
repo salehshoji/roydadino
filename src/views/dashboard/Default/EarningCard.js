@@ -19,9 +19,6 @@ import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeTwoTone';
 
-
-
-
 const CardWrapper = styled(MainCard)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.dark,
   color: '#fff',
@@ -62,6 +59,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 const EarningCard = ({ isLoading }) => {
   const theme = useTheme();
+  const [isSubmitted, setIsSubmitted] = useState(true);
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -74,123 +72,124 @@ const EarningCard = ({ isLoading }) => {
   };
 
   const hadel = () => {
-      location.href = "http://localhost:3000/free/utils/util-typography"
+    location.href = 'http://localhost:3000/free/utils/util-typography';
   };
-
   const handleDelClick = () => {
-    gOther = document.querySelectorAll(".grid:not(#g1)");
-
-    for (g of gOther) {
-    g.style.display = "none";
-    }
-  }
+    console.log('delete this!');
+    setIsSubmitted(false);
+  };
   return (
     <>
       {isLoading ? (
         <SkeletonEarningCard />
       ) : (
-        <CardWrapper border={false} content={false}>
-          <Box sx={{ p: 2.25 }}>
-
-            <Grid container direction="column">
-
-              <Grid item>
-                <Grid container justifyContent="space-between">
-                  <Grid item>
-                    <Avatar
-                      variant="rounded"
-                      sx={{
-                        ...theme.typography.commonAvatar,
-                        ...theme.typography.largeAvatar,
-                        backgroundColor: theme.palette.secondary[800],
-                        mt: 1
-                      }}
-                    >
-                      <img src={EarningIcon} alt="Notification" />
-                    </Avatar>
+        <>
+          {isSubmitted ? (
+            <CardWrapper border={false} content={false}>
+              <Box sx={{ p: 2.25 }}>
+                <Grid container direction="column">
+                  <Grid>
+                    <Grid item>
+                      <Grid container justifyContent="space-between">
+                        <Grid item>
+                          <Avatar
+                            variant="rounded"
+                            sx={{
+                              ...theme.typography.commonAvatar,
+                              ...theme.typography.largeAvatar,
+                              backgroundColor: theme.palette.secondary[800],
+                              mt: 1
+                            }}
+                          >
+                            <img src={EarningIcon} alt="Notification" />
+                          </Avatar>
+                        </Grid>
+                        <Grid item>
+                          <Avatar
+                            variant="rounded"
+                            sx={{
+                              ...theme.typography.commonAvatar,
+                              ...theme.typography.mediumAvatar,
+                              backgroundColor: theme.palette.secondary.dark,
+                              color: theme.palette.secondary[200],
+                              zIndex: 1
+                            }}
+                            aria-controls="menu-earning-card"
+                            aria-haspopup="true"
+                            onClick={handleClick}
+                          >
+                            <MoreHorizIcon fontSize="inherit" />
+                          </Avatar>
+                          <Menu
+                            id="menu-earning-card"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                            variant="selectedMenu"
+                            anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'right'
+                            }}
+                            transformOrigin={{
+                              vertical: 'top',
+                              horizontal: 'right'
+                            }}
+                          >
+                            <MenuItem onClick={handleClose}>
+                              <GetAppTwoToneIcon sx={{ mr: 1.75 }} /> افزودن کارت
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                              <FileCopyTwoToneIcon sx={{ mr: 1.75 }} /> کپی دیتا
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                              <PictureAsPdfTwoToneIcon sx={{ mr: 1.75 }} /> خروجی با
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                              <ArchiveTwoToneIcon sx={{ mr: 1.75 }} /> Archive File
+                            </MenuItem>
+                          </Menu>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid item>
+                      <Grid container alignItems="top" dir="rtl">
+                        <Grid item>
+                          <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 11, mt: 0.6, mb: 0.75 }}>
+                            اردوی راهی برای چاره دیگر
+                          </Typography>
+                          <Typography sx={{ color: '#99D9EA', fontSize: '0.9rem', fontWeight: 300, mr: 11, mt: 0.9, mb: 0.75 }}>
+                            این اردو، یک اردوی فرهنگی تفریحی برای برگزاری است و اکنون در وضعیت خوبی به سر می برد
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Grid>
                   </Grid>
                   <Grid item>
-                    <Avatar
-                      variant="rounded"
-                      sx={{
-                        ...theme.typography.commonAvatar,
-                        ...theme.typography.mediumAvatar,
-                        backgroundColor: theme.palette.secondary.dark,
-                        color: theme.palette.secondary[200],
-                        zIndex: 1
-                      }}
-                      aria-controls="menu-earning-card"
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon fontSize="inherit" />
-                    </Avatar>
-                    <Menu
-                      id="menu-earning-card"
-                      anchorEl={anchorEl}
-                      keepMounted
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                      variant="selectedMenu"
-                      anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'right'
-                      }}
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right'
-                      }}
-                    >
-                      <MenuItem onClick={handleClose}>
-                        <GetAppTwoToneIcon sx={{ mr: 1.75 }} /> افزودن کارت
-                      </MenuItem>
-                      <MenuItem onClick={handleClose}>
-                        <FileCopyTwoToneIcon sx={{ mr: 1.75 }} /> کپی دیتا
-                      </MenuItem>
-                      <MenuItem onClick={handleClose}>
-                        <PictureAsPdfTwoToneIcon sx={{ mr: 1.75 }} /> خروجی با
-                      </MenuItem>
-                      <MenuItem onClick={handleClose}>
-                        <ArchiveTwoToneIcon sx={{ mr: 1.75 }} /> Archive File
-                      </MenuItem>
-                    </Menu>
+                    <Grid container justifyContent="start" spacing={2}>
+                      <Grid id="sss" item dir="ltr">
+                        <Button onClick={handleDelClick} color="error" variant="contained" startIcon={<DeleteIcon />}>
+                          حذف
+                        </Button>
+                      </Grid>
+                      <Grid item dir="ltr">
+                        <Button onClick={hadel} color="inherit" variant="outlined" startIcon={<EyeIcon />}>
+                          مشاهده
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </Grid>
                 </Grid>
-              </Grid>
-              
-              <Grid item>
-                <Grid container alignItems="top" dir="rtl">
-                  <Grid item>
-                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 11, mt: 0.6, mb: 0.75 }}>اردوی راهی برای چاره دیگر</Typography>
-                    <Typography sx={{ color:'#99D9EA' ,fontSize: '0.9rem', fontWeight: 300, mr: 11, mt: 0.9, mb: 0.75 }}>این اردو، یک اردوی فرهنگی تفریحی برای برگزاری است و اکنون در وضعیت خوبی به سر می برد</Typography>
-                  </Grid>
-                  
-                </Grid>
-              </Grid>
-
-              <Grid item>
-                <Grid container justifyContent="start" spacing={2}>
-
-                  <Grid id= "sss" item dir="ltr"> 
-                    <Button onClick={handleDelClick} color="error" variant="contained" startIcon={<DeleteIcon />}>حذف</Button> 
-                  </Grid>
-                  
-
-                  <Grid item dir="ltr"> 
-                    <Button onClick={hadel} color="inherit" variant="outlined" startIcon={<EyeIcon />}>مشاهده</Button> 
-                  </Grid>
-
-                </Grid>
-
-              </Grid>
-            </Grid>
-          </Box>
-        </CardWrapper>
+              </Box>
+            </CardWrapper>
+          ) : (
+              <></>
+          )}
+        </>
       )}
     </>
   );
 };
-
 
 EarningCard.propTypes = {
   isLoading: PropTypes.bool
