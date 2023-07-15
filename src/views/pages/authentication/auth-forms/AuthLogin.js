@@ -48,6 +48,10 @@ const FirebaseLogin = ({ ...others }) => {
     console.error('Login');
   };
 
+  const signIn = () => {
+    location.href = "http://localhost:3000/free/dashboard/default"
+  }
+
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -215,7 +219,7 @@ const FirebaseLogin = ({ ...others }) => {
 
             <Box sx={{ mt: 2 }}>
               <AnimateButton>
-                <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="secondary">
+                <Button onClick={signIn} disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="secondary">
                   بزن بریم
                 </Button>
               </AnimateButton>
