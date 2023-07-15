@@ -113,7 +113,7 @@ const FirebaseLogin = ({ ...others }) => {
         </Grid>
         <Grid item xs={12} container alignItems="center" justifyContent="center">
           <Box sx={{ mb: 2 }}>
-            <Typography variant="subtitle1">Sign in with Email address</Typography>
+            <Typography variant="subtitle1">ورود با ایمیل</Typography>
           </Box>
         </Grid>
       </Grid>
@@ -147,7 +147,7 @@ const FirebaseLogin = ({ ...others }) => {
         {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
           <form noValidate onSubmit={handleSubmit} {...others}>
             <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
-              <InputLabel htmlFor="outlined-adornment-email-login">Email Address / Username</InputLabel>
+              <InputLabel htmlFor="outlined-adornment-email-login">ایمیل یا نام کاربری</InputLabel>
               <OutlinedInput
                 id="outlined-adornment-email-login"
                 type="email"
@@ -166,7 +166,7 @@ const FirebaseLogin = ({ ...others }) => {
             </FormControl>
 
             <FormControl fullWidth error={Boolean(touched.password && errors.password)} sx={{ ...theme.typography.customInput }}>
-              <InputLabel htmlFor="outlined-adornment-password-login">Password</InputLabel>
+              <InputLabel htmlFor="outlined-adornment-password-login">رمز عبور</InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password-login"
                 type={showPassword ? 'text' : 'password'}
@@ -201,10 +201,10 @@ const FirebaseLogin = ({ ...others }) => {
                 control={
                   <Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" color="primary" />
                 }
-                label="Remember me"
+                label="مرا به خاطرت نگه دار"
               />
               <Typography variant="subtitle1" color="secondary" sx={{ textDecoration: 'none', cursor: 'pointer' }}>
-                Forgot Password?
+                رمز عبور رو یادت رفته؟
               </Typography>
             </Stack>
             {errors.submit && (
@@ -216,7 +216,7 @@ const FirebaseLogin = ({ ...others }) => {
             <Box sx={{ mt: 2 }}>
               <AnimateButton>
                 <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="secondary">
-                  Sign in
+                  بزن بریم
                 </Button>
               </AnimateButton>
             </Box>
