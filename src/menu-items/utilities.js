@@ -13,16 +13,16 @@ const icons = {
 
 const utilities = {
   id: 'utilities',
-  title: 'Utilities',
+  title: '',
   type: 'group',
   children: [
     {
       id: 'util-typography',
-      title: 'Typography',
+      title: 'رویداد نگار',
       type: 'item',
       url: '/utils/util-typography',
       icon: icons.IconTypography,
-      breadcrumbs: false
+      breadcrumbs: false,
     },
     
   ]
