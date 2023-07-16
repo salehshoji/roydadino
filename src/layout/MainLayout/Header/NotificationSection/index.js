@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -36,19 +35,19 @@ import { IconBell } from '@tabler/icons';
 const status = [
   {
     value: 'all',
-    label: 'All Notification'
+    label: 'همه توتیفیکیشن ها'
   },
   {
     value: 'new',
-    label: 'New'
+    label: 'جدید'
   },
   {
     value: 'unread',
-    label: 'Unread'
+    label: 'خوانده نشده'
   },
   {
     value: 'other',
-    label: 'Other'
+    label: '...'
   }
 ];
 
@@ -147,11 +146,11 @@ const NotificationSection = () => {
               <ClickAwayListener onClickAway={handleClose}>
                 <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
                   <Grid container direction="column" spacing={2}>
-                    <Grid item xs={12}>
+                    <Grid dir="rtl" item xs={12}>
                       <Grid container alignItems="center" justifyContent="space-between" sx={{ pt: 2, px: 2 }}>
                         <Grid item>
                           <Stack direction="row" spacing={2}>
-                            <Typography variant="subtitle1">All Notification</Typography>
+                            <Typography variant="subtitle1" marginLeft={1}>توتیفیکیشن ها</Typography>
                             <Chip
                               size="small"
                               label="01"
@@ -162,11 +161,7 @@ const NotificationSection = () => {
                             />
                           </Stack>
                         </Grid>
-                        <Grid item>
-                          <Typography component={Link} to="#" variant="subtitle2" color="primary">
-                            Mark as all read
-                          </Typography>
-                        </Grid>
+                        
                       </Grid>
                     </Grid>
                     <Grid item xs={12}>
@@ -180,6 +175,7 @@ const NotificationSection = () => {
                                 fullWidth
                                 value={value}
                                 onChange={handleChange}
+                                dir='rtl'
                                 SelectProps={{
                                   native: true
                                 }}
@@ -203,7 +199,7 @@ const NotificationSection = () => {
                   <Divider />
                   <CardActions sx={{ p: 1.25, justifyContent: 'center' }}>
                     <Button size="small" disableElevation>
-                      View All
+                      مشاهده همه
                     </Button>
                   </CardActions>
                 </MainCard>
