@@ -74,10 +74,12 @@ const EarningCard = ({ isLoading }) => {
   const handel = () => {
     location.href = 'http://localhost:3000/free/utils/util-typography';
   };
+
   const handleDelClick = () => {
     console.log('delete this!');
     setIsSubmitted(false);
   };
+  
   return (
     <>
       {isLoading ? (

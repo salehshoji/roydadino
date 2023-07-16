@@ -1,4 +1,4 @@
-import { Grid, Link } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import MuiTypography from '@mui/material/Typography';
 
 // project imports
@@ -16,6 +16,7 @@ import HotelIcon from '@mui/icons-material/Hotel';
 import RepeatIcon from '@mui/icons-material/Repeat';
 /////
 
+
 import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
@@ -23,34 +24,56 @@ import { gridSpacing } from 'store/constant';
 
 // ==============================|| TYPOGRAPHY ||============================== //
 
+
 const Typography = () => (
-  <MainCard dir="rtl" title="نام رویداد" secondary={<SecondaryAction title='بازگشت' link="http://localhost:3000/free/dashboard/default" />}>
+  <MainCard dir="rtl" title="اردوی راهی برای چاره دیگر" secondary={<SecondaryAction title='بازگشت' link="http://localhost:3000/free/dashboard/default" />}>
     <Grid container spacing={gridSpacing}>
       <Grid item xs={12} sm={6}>
         <SubCard >
-          <Grid container direction="column" spacing={1}>
-            <Grid item>
-              <MuiTypography variant="h5" gutterBottom>
+          <Grid container direction="column" spacing={1}> 
+            <Grid item >
+              <MuiTypography  variant="h5" gutterBottom marginTop={1}>
               تاریخ 1401/12/3 
               </MuiTypography>
             </Grid>
           </Grid>
         </SubCard>
         <br></br>
-        <SubCard>
-          <Grid container direction="column" spacing={1}>
+        <SubCard sx={{backgroundColor: '#5E3AAE'}} >
+          <Grid container justifyContent="start" spacing={3}>
             <Grid item>
-              <MuiTypography variant="h6" gutterBottom>
+              <MuiTypography color={'white'} variant="h5" marginTop={1} gutterBottom>
                 تعداد ثبت نامی ها تا کنون 100 نفر
               </MuiTypography>
             </Grid>
+            <Grid item marginRight={24}>
+              <Button variant='outlined' color="warning">مشاهده لیست ثبت نامی ها</Button>
+            </Grid>
           </Grid>
         </SubCard>
+        <br></br>
+    
+      <SubCard title="توضیحات" >
+        <Grid container direction="column" spacing={1} mb={13}>
+          <Grid item>
+            <MuiTypography variant="body1" gutterBottom>
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+            </MuiTypography>
+          </Grid>
+          <Grid item>
+            <MuiTypography variant="body2" gutterBottom>
+              
+            </MuiTypography>
+          </Grid>
+        </Grid>
+      </SubCard>
+
+
       </Grid>
-      <Grid item xs={12} sm={4}>
+      <Grid item xs={12} sm={6}>
         <SubCard title="برنامه روزانه">
-          <Grid container direction="column" spacing={1}>
-            <Grid  dir= "rtl"  item>
+          <Grid container direction="column" spacing={1} sm={13} alignItems={'center'}>
+            <Grid item>
               <Timeline position="alternate">
                 <TimelineItem>
                   <TimelineOppositeContent
@@ -137,58 +160,10 @@ const Typography = () => (
           </Grid>
         </SubCard>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <SubCard title="توضیحات">
-          <Grid container direction="column" spacing={1}>
-            <Grid item>
-              <MuiTypography variant="body1" gutterBottom>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-              </MuiTypography>
-            </Grid>
-            <Grid item>
-              <MuiTypography variant="body2" gutterBottom>
-               
-              </MuiTypography>
-            </Grid>
-          </Grid>
-        </SubCard>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <SubCard title="Extra">
-          <Grid container direction="column" spacing={1}>
-            <Grid item>
-              <MuiTypography variant="button" display="block" gutterBottom>
-                button text
-              </MuiTypography>
-            </Grid>
-            <Grid item>
-              <MuiTypography variant="caption" display="block" gutterBottom>
-                caption text
-              </MuiTypography>
-            </Grid>
-            <Grid item>
-              <MuiTypography variant="overline" display="block" gutterBottom>
-                overline text
-              </MuiTypography>
-            </Grid>
-            <Grid item>
-              <MuiTypography
-                variant="body2"
-                color="primary"
-                component={Link}
-                href="https://berrydashboard.io"
-                target="_blank"
-                display="block"
-                underline="hover"
-                gutterBottom
-              >
-                https://berrydashboard.io
-              </MuiTypography>
-            </Grid>
-          </Grid>
-        </SubCard>
-      </Grid>
     </Grid>
+
+
+    <Grid></Grid>
   </MainCard>
 );
 
