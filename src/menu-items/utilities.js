@@ -21,7 +21,7 @@ const utilities = {
       title: 'رویداد نگار',
       type: 'item',
       url: '/utils/util-typography',
-      icon: icons.IconTypography,
+      icon: icons.IconShadow,
       breadcrumbs: false,
     },
     
